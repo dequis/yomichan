@@ -39,15 +39,27 @@ window.yomichan_backend = new class {
     onOptionsUpdated(options) {
         this.options = options;
 
+        let icon_suffix = ".png";
+
         if (!options.general.enable) {
-            chrome.browserAction.setBadgeBackgroundColor({color: '#d9534f'});
+            chrome.browserAction.setBadgeBackgroundColor({color: '#808080'});
             chrome.browserAction.setBadgeText({text: 'off'});
+            icon_suffix = "-disabled.png";
         } else if (!dictConfigured(options)) {
             chrome.browserAction.setBadgeBackgroundColor({color: '#f0ad4e'});
             chrome.browserAction.setBadgeText({text: '!'});
+            icon_suffix = "-disabled.png";
         } else {
             chrome.browserAction.setBadgeText({text: ''});
+            chrome.browserAction.setIcon({path: default_icon})
         }
+
+        chrome.browserAction.setIcon({
+            path: {
+                "19": "/mixed/img/icon19" + icon_suffix,
+                "38": "/mixed/img/icon38" + icon_suffix,
+            }
+        });
 
         if (options.anki.enable) {
             this.anki = new AnkiConnect(options.anki.server);
