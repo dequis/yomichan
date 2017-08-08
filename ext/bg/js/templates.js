@@ -157,7 +157,7 @@ templates['fields.html'] = template({"1":function(container,depth0,helpers,parti
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.modeKanji : depth0),{"name":"if","hash":{},"fn":container.program(44, data, 0, blockParams, depths),"inverse":container.program(53, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.html : depth0),{"name":"if","hash":{},"fn":container.program(66, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 },"42":function(container,depth0,helpers,partials,data) {
-    return "<div style=\"text-align: left;\">";
+    return "<div style=\"list-style-position: inside;\">";
 },"44":function(container,depth0,helpers,partials,data) {
     var stack1;
 
